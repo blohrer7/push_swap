@@ -6,7 +6,7 @@
 #    By: blohrer <blohrer@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/25 16:36:09 by blohrer           #+#    #+#              #
-#    Updated: 2025/02/28 08:46:31 by blohrer          ###   ########.fr        #
+#    Updated: 2025/02/28 11:20:50 by blohrer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,7 @@ NAME = push_swap
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -Iincludes
 
-SRC = 	src/args_check.c \
-		src/errors.c \
+SRC = 	src/errors.c \
 		src/main.c \
 		src/sort_utils.c \
 		src/stack_init.c \
@@ -26,7 +25,8 @@ SRC = 	src/args_check.c \
 		stack_ops/swap.c \
 		src/sort.c \
 		src/utils.c \
-		src/big_sort.c
+		src/big_sort.c \
+		src/parse.c
 
 OFILES = $(SRC:.c=.o)
 
