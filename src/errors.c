@@ -6,7 +6,7 @@
 /*   By: blohrer <blohrer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 17:44:45 by blohrer           #+#    #+#             */
-/*   Updated: 2025/02/28 10:24:16 by blohrer          ###   ########.fr       */
+/*   Updated: 2025/02/28 11:15:55 by blohrer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,12 @@ void	free_errors(t_node **stack)
 		ft_node_clear(stack);
 	write(2, "Error\n", 6);
 	exit(EXIT_FAILURE);
+}
+
+void	clear(t_node **stack_a, t_node **stack_b)
+{
+	if (stack_a && *stack_a)
+		ft_node_clear(stack_a);
+	if (stack_b && *stack_b)
+		ft_node_clear(stack_b);
 }
