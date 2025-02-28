@@ -6,7 +6,7 @@
 /*   By: blohrer <blohrer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 16:45:15 by blohrer           #+#    #+#             */
-/*   Updated: 2024/10/18 09:03:54 by blohrer          ###   ########.fr       */
+/*   Updated: 2025/02/28 09:23:10 by blohrer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,9 @@
 
 t_list	*ft_lstlast(t_list *lst)
 {
-	if (lst == NULL)
+	if (!lst)
 		return (NULL);
-	while (lst->next != NULL)
-	{
+	while (lst->next)
 		lst = lst->next;
-	}
 	return (lst);
 }
