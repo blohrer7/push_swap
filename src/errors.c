@@ -6,7 +6,7 @@
 /*   By: blohrer <blohrer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 17:44:45 by blohrer           #+#    #+#             */
-/*   Updated: 2025/02/25 18:05:17 by blohrer          ###   ########.fr       */
+/*   Updated: 2025/02/28 10:24:16 by blohrer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,25 +27,6 @@ int	is_number(char *str)
 	return (1);
 }
 
-int	has_duplicates(char **args, int argc)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (i < argc - 1)
-	{
-		j = i + 1;
-		while (j < argc)
-		{
-			if (ft_atoi(args[i]) == ft_atoi(args[j]))
-				return (1);
-			j++;
-		}
-		i++;
-	}
-	return (0);
-}
 long	ft_atol(const char *str)
 {
 	long	result;
@@ -68,10 +49,22 @@ long	ft_atol(const char *str)
 	}
 	return (result * sign);
 }
-void	free_errors(t_list **stack)
+
+int	has_duplicates(t_node *stack, int value)
+{
+	while (stack)
+	{
+		if (stack->value == value)
+			return (1);
+		stack = stack->next;
+	}
+	return (0);
+}
+
+void	free_errors(t_node **stack)
 {
 	if (stack)
-		ft_lstclear(stack, free);
+		ft_node_clear(stack);
 	write(2, "Error\n", 6);
 	exit(EXIT_FAILURE);
 }
