@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    makefile                                           :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: blohrer <blohrer@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/25 16:36:09 by blohrer           #+#    #+#              #
-#    Updated: 2025/02/25 16:36:15 by blohrer          ###   ########.fr        #
+#    Updated: 2025/02/28 08:46:31 by blohrer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,18 @@ NAME = push_swap
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -Iincludes
 
-SRC = 	
+SRC = 	src/args_check.c \
+		src/errors.c \
+		src/main.c \
+		src/sort_utils.c \
+		src/stack_init.c \
+		stack_ops/push.c \
+		stack_ops/reverse_rotate.c \
+		stack_ops/rotate.c \
+		stack_ops/swap.c \
+		src/sort.c \
+		src/utils.c \
+		src/big_sort.c
 
 OFILES = $(SRC:.c=.o)
 
@@ -42,7 +53,6 @@ $(NAME): $(OFILES) $(LIBFT) $(FT_PRINTF)
 
 %.o: %.c
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
-
 
 clean:
 	rm -f $(OFILES)
