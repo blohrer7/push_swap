@@ -6,7 +6,7 @@
 #    By: blohrer <blohrer@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/25 16:36:09 by blohrer           #+#    #+#              #
-#    Updated: 2025/02/28 11:20:50 by blohrer          ###   ########.fr        #
+#    Updated: 2025/03/02 16:08:30 by blohrer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,8 +25,7 @@ SRC = 	src/errors.c \
 		stack_ops/swap.c \
 		src/sort.c \
 		src/utils.c \
-		src/big_sort.c \
-		src/parse.c
+		src/big_sort.c
 
 OFILES = $(SRC:.c=.o)
 
