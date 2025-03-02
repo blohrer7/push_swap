@@ -6,7 +6,7 @@
 /*   By: blohrer <blohrer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 08:12:20 by blohrer           #+#    #+#             */
-/*   Updated: 2025/02/28 11:20:00 by blohrer          ###   ########.fr       */
+/*   Updated: 2025/03/02 23:22:39 by blohrer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,21 +68,22 @@ void	ft_free(char **numbers)
 
 void	validate_and_add(t_node **stack, char *arg)
 {
-	int		value;
+	long	value;
 	t_node	*new_node;
 
-	if (!is_number(arg))
+	if (!arg || !*arg || !is_number(arg))
 	{
 		write(2, "Error\n", 6);
 		exit(EXIT_FAILURE);
 	}
 	value = ft_atol(arg);
-	if (value < INT_MIN || value > INT_MAX || has_duplicates(*stack, value))
+	if (value < INT_MIN || value > INT_MAX || has_duplicates(*stack,
+			(int)value))
 	{
 		write(2, "Error\n", 6);
 		exit(EXIT_FAILURE);
 	}
-	new_node = ft_node_new(value);
+	new_node = ft_node_new((int)value);
 	if (!new_node)
 	{
 		write(2, "Error\n", 6);
