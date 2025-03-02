@@ -6,7 +6,7 @@
 /*   By: blohrer <blohrer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 08:29:04 by blohrer           #+#    #+#             */
-/*   Updated: 2025/03/02 23:40:15 by blohrer          ###   ########.fr       */
+/*   Updated: 2025/03/02 23:44:14 by blohrer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,22 @@ void	parse_arguments(int argc, char *argv[], t_node **stack)
 		ft_free(args);
 		i++;
 	}
+}
+
+void	print_stack(t_node *stack)
+{
+	t_node	*current;
+
+	if (!stack)
+	{
+		printf("Stack ist leer.\n");
+		return ;
+	}
+	current = stack;
+	while (current)
+	{
+		printf("%d ", current->value);
+		current = current->next;
+	}
+	printf("\n");
 }
