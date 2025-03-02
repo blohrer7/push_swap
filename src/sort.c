@@ -6,7 +6,7 @@
 /*   By: blohrer <blohrer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 08:29:04 by blohrer           #+#    #+#             */
-/*   Updated: 2025/02/28 10:25:59 by blohrer          ###   ########.fr       */
+/*   Updated: 2025/03/02 14:42:49 by blohrer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	sort_stack(t_node **stack_a, t_node **stack_b)
 	while (*stack_b)
 	{
 		init_list(stack_a, stack_b);
-		execute_best_move(stack_a, stack_b);
+		move_back(stack_a, stack_b);
 	}
 	final_sort(stack_a);
 }
@@ -56,47 +56,4 @@ void	three_sort(t_node **stack)
 		reverse_rotate_a(stack);
 	if ((*stack)->value > (*stack)->next->value)
 		swap_a(stack);
-}
-
-void	execute_best_move(t_node **stack_a, t_node **stack_b)
-{
-	t_node	*cheapest;
-
-	cheapest = get_lowest_cost(*stack_b);
-	while (*stack_b != cheapest)
-	{
-		if (cheapest->index <= ft_node_size(*stack_b) / 2)
-			rotate_b(stack_b);
-		else
-			reverse_rotate_b(stack_b);
-	}
-	while (*stack_a != cheapest->target)
-	{
-		if (cheapest->target->index <= ft_node_size(*stack_a) / 2)
-			rotate_a(stack_a);
-		else
-			reverse_rotate_a(stack_a);
-	}
-	push_a(stack_a, stack_b);
-}
-
-void	init_position(t_node **stack)
-{
-	t_node	*current_node;
-	int		position;
-	int		half_size;
-
-	half_size = ft_node_size(*stack) / 2;
-	position = 0;
-	current_node = *stack;
-	while (current_node)
-	{
-		current_node->index = position;
-		if (position <= half_size)
-			current_node->median = 1;
-		else
-			current_node->median = 0;
-		position++;
-		current_node = current_node->next;
-	}
 }
