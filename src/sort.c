@@ -6,7 +6,7 @@
 /*   By: blohrer <blohrer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 08:29:04 by blohrer           #+#    #+#             */
-/*   Updated: 2025/03/02 16:08:02 by blohrer          ###   ########.fr       */
+/*   Updated: 2025/03/02 16:25:45 by blohrer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,22 +23,6 @@ int	is_sorted(t_node *list)
 		list = list->next;
 	}
 	return (1);
-}
-
-void	sort_stack(t_node **stack_a, t_node **stack_b)
-{
-	if (!stack_a || !*stack_a)
-		return ;
-	while (ft_node_size(*stack_a) > 3)
-		push_b(stack_b, stack_a);
-	if (!is_sorted(*stack_a))
-		three_sort(stack_a);
-	while (*stack_b)
-	{
-		init_list(stack_a, stack_b);
-		move_back(stack_a, stack_b);
-	}
-	final_sort(stack_a);
 }
 
 void	three_sort(t_node **stack)
