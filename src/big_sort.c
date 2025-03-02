@@ -6,7 +6,7 @@
 /*   By: blohrer <blohrer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 10:58:16 by blohrer           #+#    #+#             */
-/*   Updated: 2025/03/02 11:05:26 by blohrer          ###   ########.fr       */
+/*   Updated: 2025/03/02 16:25:54 by blohrer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,22 +44,12 @@ void	move_back(t_node **stack_a, t_node **stack_b)
 	push_a(stack_a, stack_b);
 }
 
-void	big_sort(t_node **stack_a, t_node **stack_b)
+void	sort_stack(t_node **stack_a, t_node **stack_b)
 {
-	int	size;
-	int	median;
-
-	size = ft_node_size(*stack_a);
-	median = ft_node_size(*stack_a) / 2;
-	cur_indexes(stack_a);
-	while (size > 3)
-	{
-		if ((*stack_a)->index < median)
-			push_b(stack_b, stack_a);
-		else
-			rotate_a(stack_a);
-		size--;
-	}
+	if (!stack_a || !*stack_a)
+		return ;
+	while (ft_node_size(*stack_a) > 3)
+		push_b(stack_b, stack_a);
 	if (!is_sorted(*stack_a))
 		three_sort(stack_a);
 	while (*stack_b)
