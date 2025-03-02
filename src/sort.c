@@ -6,7 +6,7 @@
 /*   By: blohrer <blohrer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 08:29:04 by blohrer           #+#    #+#             */
-/*   Updated: 2025/03/02 16:25:45 by blohrer          ###   ########.fr       */
+/*   Updated: 2025/03/02 23:40:15 by blohrer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,15 +51,20 @@ void	parse_arguments(int argc, char *argv[], t_node **stack)
 	i = 1;
 	while (i < argc)
 	{
+		if (!argv[i] || !*argv[i])
+		{
+			write(2, "Error\n", 6);
+			exit(EXIT_FAILURE);
+		}
 		args = ft_split(argv[i], ' ');
-		if (!args)
-			return ;
+		if (!args || !args[0])
+		{
+			write(2, "Error\n", 6);
+			exit(EXIT_FAILURE);
+		}
 		j = 0;
 		while (args[j])
-		{
-			validate_and_add(stack, args[j]);
-			j++;
-		}
+			validate_and_add(stack, args[j++]);
 		ft_free(args);
 		i++;
 	}
