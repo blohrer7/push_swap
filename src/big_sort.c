@@ -6,7 +6,7 @@
 /*   By: blohrer <blohrer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 10:58:16 by blohrer           #+#    #+#             */
-/*   Updated: 2025/03/02 16:25:54 by blohrer          ###   ########.fr       */
+/*   Updated: 2025/03/07 07:29:18 by blohrer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,10 @@ void	sort_stack(t_node **stack_a, t_node **stack_b)
 {
 	if (!stack_a || !*stack_a)
 		return ;
+	if (!is_sorted(*stack_a))
+	{
+		two_sort(stack_a);
+	}
 	while (ft_node_size(*stack_a) > 3)
 		push_b(stack_b, stack_a);
 	if (!is_sorted(*stack_a))
